@@ -1,0 +1,13 @@
+# database properties
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_vendor?useSSL=false
+    username: root
+    password: Guna@7222
+
+# jpa properties
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+

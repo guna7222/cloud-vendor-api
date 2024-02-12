@@ -36,16 +36,16 @@ public class CloudVendorApiServiceImpl implements CloudVendorApiService{
             cloudVendorModel.setVendorPhoneNumber(cloud.getVendorPhoneNumber());
             return cloudVendorApiRepository.save(cloudVendorModel);
         } else {
-            return null;
+            throw new CloudVendorNotFoundException("No vendor found!");
         }
     }
 
     @Override
-    public Optional<CloudVendorModel> getCloudVendorDetailsById(String vendorId) {
+    public CloudVendorModel getCloudVendorDetailsById(String vendorId) {
         if(cloudVendorApiRepository.findById(vendorId).isEmpty()){
             throw new CloudVendorNotFoundException("Cloud Vendor Doesn't exits with this id" + vendorId);
         }
-       return cloudVendorApiRepository.findById(vendorId);
+       return cloudVendorApiRepository.findById(vendorId).get();
     }
 
     @Override

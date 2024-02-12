@@ -1,6 +1,7 @@
 package com.cloudvendorapi.controller;
 
 import com.cloudvendorapi.model.CloudVendorModel;
+import com.cloudvendorapi.response.CustomResponseHandler;
 import com.cloudvendorapi.service.CloudVendorApiServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +17,8 @@ public class CloudVendorApiController {
     @Autowired
     private CloudVendorApiServiceImpl cloudVendorApiService;
     @GetMapping("{vendorId}")
-    public ResponseEntity<Optional<CloudVendorModel>> getCloudVendorApiDetailsById(@PathVariable("vendorId") String vendorId){
-        return new ResponseEntity<>(cloudVendorApiService.getCloudVendorDetailsById(vendorId), HttpStatus.OK);
+    public ResponseEntity<Object> getCloudVendorApiDetailsById(@PathVariable("vendorId") String vendorId){
+        return CustomResponseHandler.responseBuilder("cloud vendor details by id", HttpStatus.OK, cloudVendorApiService.getCloudVendorDetailsById(vendorId));
     }
 
     @GetMapping("/allvendordetails")

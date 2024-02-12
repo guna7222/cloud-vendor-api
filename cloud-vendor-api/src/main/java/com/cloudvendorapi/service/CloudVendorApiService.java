@@ -10,6 +10,6 @@ public interface CloudVendorApiService {
     public CloudVendorModel createCloudVenderApi(CloudVendorModel cloudVendorModel);
     public List<CloudVendorModel> getAllCloudVendorDetails();
     public CloudVendorModel updateCloudVendorDetails(CloudVendorModel cloudVendorModel, String vendorId);
-    public Optional<CloudVendorModel> getCloudVendorDetailsById(String vendorId);
+    public Object getCloudVendorDetailsById(String vendorId);
     public String deleteById(String vendorId);
 }

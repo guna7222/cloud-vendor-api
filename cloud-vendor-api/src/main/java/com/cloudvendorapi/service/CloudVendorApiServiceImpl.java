@@ -50,6 +50,9 @@ public class CloudVendorApiServiceImpl implements CloudVendorApiService{
 
     @Override
     public String deleteById(String vendorId) {
+        if(cloudVendorApiRepository.findById(vendorId).isEmpty()){
+            throw new CloudVendorNotFoundException("vendor not available");
+        }
        cloudVendorApiRepository.deleteById(vendorId);
        return "Deleted !";
     }

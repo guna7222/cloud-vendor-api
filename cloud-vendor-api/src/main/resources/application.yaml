@@ -10,4 +10,9 @@ spring:
     hibernate:
       ddl-auto: create
 
-
+# spring boot actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

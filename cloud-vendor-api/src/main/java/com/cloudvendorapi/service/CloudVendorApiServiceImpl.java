@@ -54,6 +54,6 @@ public class CloudVendorApiServiceImpl implements CloudVendorApiService{
             throw new CloudVendorNotFoundException("vendor not available");
         }
        cloudVendorApiRepository.deleteById(vendorId);
-       return "Deleted !";
+       return "Employee with this id doesn't present in the database" +  vendorId;
     }
 }
